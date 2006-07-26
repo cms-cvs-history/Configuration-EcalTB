@@ -1,0 +1,33 @@
+  es_source src1 = PoolDBESSource 
+              { VPSet toGet = 
+## Should we add here the SM number
+                              {
+                                {string record = "EcalIntercalibConstantsRcd"
+                                 string tag = "EcalIntercalibConstants"
+                                },
+                                {string record = "EcalADCToGeVConstantRcd"
+                                 string tag = "EcalADCToGeVConstant"
+                                }
+
+                               }
+                               bool loadAll = true
+#                               string connect = "sqlite_file:/afs/cern.ch/cms/ECAL/testbeam/pedestal/2004/v2/ecal2004condDB.db"
+#		               untracked string catalog = "file:/afs/cern.ch/cms/ECAL/testbeam/pedestal/2004/v2/PoolFileCatalog.xml"	
+                               string timetype = "runnumber"
+                               untracked uint32 authenticationMethod = 0
+                               untracked uint32 messagelevel = 1
+	       }
+	
+ module getCalibrations = EventSetupRecordDataGetter 
+        { VPSet toGet = 
+	      {
+                {string record = "EcalIntercalibConstantsRcd"
+                 vstring data  = {"EcalIntercalibConstants"}
+                },
+                {string record = "EcalADCToGeVConstantRcd"
+                 vstring data  = {"EcalADCToGeVConstant"}
+                }
+
+               }
+	       untracked bool verbose = true 
+	}

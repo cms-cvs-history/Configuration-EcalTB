@@ -1,0 +1,14 @@
+  # ECAL conditions
+  include "CalibCalorimetry/EcalTrivialCondModules/data/EcalTrivialCondRetrieverTB.cfi"
+
+  # Hodoscope Reconstruction
+  include "RecoLocalCalo/EcalRecProducers/data/ecalTBSimHodoscopeReconstructor.cfi"
+
+  # TDC Reconstruction
+  include "RecoLocalCalo/EcalRecProducers/data/ecalTBSimTDCReconstructor.cfi"
+
+  # ECAL reconstruction
+  include "RecoTBCalo/EcalRecProducers/data/ecalTBSimWeightUncalibRecHit.cfi"
+  include "RecoLocalCalo/EcalRecProducers/data/ecalTBSimRecHit.cfi"
+
+  sequence localReco_tbsim = { ecalTBSimHodoscopeReconstructor, ecalTBSimTDCReconstructor, ecalTBSimWeightUncalibRecHit, ecalTBSimRecHit }
