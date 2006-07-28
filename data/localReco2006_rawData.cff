@@ -2,7 +2,7 @@
  include "RecoTBCalo/EcalTBHodoscopeReconstructor/data/ecal2006TBHodoscopeReconstructor.cfi"
 
  # TDC Reconstruction
- #include "RecoTBCalo/EcalTBTDCReconstructor/data/ecal2006TBTDCReconstructor.cfi"
+ include "RecoTBCalo/EcalTBTDCReconstructor/data/ecal2006TBTDCReconstructor.cfi"
 
  # uncalibrated rechit producer
  include "RecoTBCalo/EcalTBRecProducers/data/ecal2006TBWeightUncalibRecHit.cfi"
