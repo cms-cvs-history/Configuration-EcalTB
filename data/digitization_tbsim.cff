@@ -1,0 +1,14 @@
+
+   module mix = MixingModule {
+         int32 bunchspace = 25
+   }
+
+   include "Geometry/CaloEventSetup/data/CaloGeometry.cfi"
+
+   include "Geometry/CaloEventSetup/data/EcalTrigTowerConstituents.cfi"
+ 
+   # use trivial ESProducer for tests
+   include "CalibCalorimetry/EcalTrivialCondModules/data/EcalTrivialCondRetriever.cfi"
+ 
+   include "SimCalorimetry/EcalTestBeam/data/ecaldigi_testbeam.cfi"
+
