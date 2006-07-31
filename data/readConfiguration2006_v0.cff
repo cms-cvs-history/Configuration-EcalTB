@@ -9,8 +9,8 @@
                                 }
                               }
                               bool loadAll = true
-                              string connect = "sqlite_file:/afs/cern.ch/cms/ECAL/testbeam/pedestal/2006/ecalwgt_DQM.db"
-		              untracked string catalog = "file:/afs/cern.ch/cms/ECAL/testbeam/pedestal/2006/PoolFileCatalog_DQM.xml"
+                              string connect = "sqlite_file:/afs/cern.ch/cms/ECAL/testbeam/pedestal/2006/WEIGHTS/ecalwgt_Default.db"
+		              untracked string catalog = "file:/afs/cern.ch/cms/ECAL/testbeam/pedestal/2006/WEIGHTS/PoolFileCatalog_Default.xml"
                               string timetype = "runnumber"
                               untracked uint32 authenticationMethod = 0
                               untracked uint32 messagelevel = 1
