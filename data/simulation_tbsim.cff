@@ -21,9 +21,14 @@
          using common_beam_direction_parameters
    }
 
-   # Test Beam ECAL hodoscope raw data simulation
+   # Test Beam ECAL hodoscope crude raw data simulation
    # 
    module SimEcalTBHodoscope = FakeTBHodoscopeRawInfoProducer {
          untracked string EcalTBInfoLabel = 'SimEcalTBG4Object'
    }
 		
+   # Test Beam ECAL Event header filling
+   # 
+   module SimEcalEventHeader = FakeTBEventHeaderProducer {
+         untracked string EcalTBInfoLabel = 'SimEcalTBG4Object'
+   }
