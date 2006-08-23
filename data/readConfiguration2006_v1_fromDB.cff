@@ -12,8 +12,12 @@
                           { string record = "EcalIntercalibConstantsRcd"
                             string tag = "EcalIntercalibConstants_cosmic_1xtal_V0" },
                           { string record = "EcalWeightXtalGroupsRcd"
+	                    #If reading SM22 runs use the following
+	                    #string tag = "EcalWeightXtalGroups_standard_V1"
                             string tag = "EcalWeightXtalGroups_standard_V0" },
                           { string record = "EcalTBWeightsRcd"
+	                    #If reading SM22 runs use the following
+	                    #string tag = "EcalTBWeights_standard_V1" }
                             string tag = "EcalTBWeights_standard_V0" }
                           }
 		    	  bool loadAll = true
