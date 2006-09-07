@@ -1,0 +1,46 @@
+es_source src1= PoolDBESSource 
+{ 
+    VPSet toGet = 
+    {
+	{string record = "EcalTBWeightsRcd"
+	    string tag = "EcalTBWeightsSM"
+	},
+	{string record = "EcalWeightXtalGroupsRcd"
+	    string tag = "EcalWeightXtalGroupsSM"
+	}
+    }
+    bool loadAll = true
+    string connect = "sqlite_file:/afs/cern.ch/cms/ECAL/testbeam/pedestal/2006/WEIGHTS/ecalwgt_SM09_V0.db"
+    untracked string catalog = "file:/afs/cern.ch/cms/ECAL/testbeam/pedestal/2006/WEIGHTS/PoolFileCatalog_SM09_V0.xml"
+    string timetype = "runnumber"
+    untracked uint32 authenticationMethod = 0
+    untracked uint32 messagelevel = 1
+}
+
+es_source src2 = EcalTrivialConditionRetriever 
+{
+    untracked bool producedEcalWeights = false
+    untracked bool producedEcalPedestals = true
+    untracked bool producedEcalIntercalibConstants = true
+    untracked bool producedEcalGainRatios = true
+    untracked bool producedEcalADCToGeVConstant = true
+    untracked bool weightsForTB = false
+    #       If set true reading optimized weights (3+5 weights) from file 
+    untracked bool getWeightsFromFile = false
+    #       Values to get correct noise on RecHit amplitude using 3+5 weights
+    untracked double EBpedRMSX12 = 1.26
+    untracked double EEpedRMSX12 = 2.87
+    #	untracked string amplWeightsFile = "CalibCalorimetry/EcalTrivialCondModules/data/ampWeights_TB.txt"
+}
+
+module getCond = EventSetupRecordDataGetter 
+{ 
+    VPSet toGet = 
+    {
+	{string record = "EcalTBWeightsRcd"
+	    vstring data = {"EcalTBWeights"} },
+	{string record = "EcalWeightXtalGroupsRcd"
+	    vstring data = {"EcalWeightXtalGroups"} }	
+    }
+    untracked bool verbose = true 
+}
