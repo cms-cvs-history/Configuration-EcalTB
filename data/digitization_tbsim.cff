@@ -1,7 +1,5 @@
 
-   module mix = MixingModule {
-         int32 bunchspace = 25
-   }
+   include "SimGeneral/MixingModule/data/mix_none.cfi"
 
    include "Geometry/CaloEventSetup/data/CaloGeometry.cfi"
 

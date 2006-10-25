@@ -8,7 +8,12 @@
    # Magnetic Field
    #
    #include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
-   
+
+   #
+   # PDT source
+   #
+   include "SimGeneral/HepPDTESSource/data/pdt.cfi"   
+
    # Geant4-based CMS Det.Simulation
    #
    include "SimG4CMS/EcalTestBeam/data/EcalTestBeamSimG4Object.cff"
