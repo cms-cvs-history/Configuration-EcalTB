@@ -21,8 +21,8 @@
                             string tag = "EcalTBWeights_standard_V0" }
                           }
 		    	  bool loadAll = true
-                          string connect = "oracle://cmsr/CMS_ECAL_H4_COND"
-                          untracked string catalog = "relationalcatalog_oracle://cmsr/CMS_ECAL_H4_COND"
+                          string connect = "oracle://cms_testbeam/CMS_ECAL_H4_COND"
+                          untracked string catalog = "relationalcatalog_oracle://cms_testbeam/CMS_ECAL_H4_COND"
                           untracked uint32 authenticationMethod = 1
 			  string timetype = "runnumber"
                           untracked uint32 messagelevel = 2 
