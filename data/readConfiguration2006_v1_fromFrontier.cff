@@ -1,0 +1,54 @@
+# This config file can be used to retrieve constants from the Condition Data Base. 
+# Ricky Egeland 18/08/06 Modif Alex Zabi: change into cff file
+
+	es_source = PoolDBESSource { 
+			VPSet toGet = {
+                          { string record = "EcalPedestalsRcd"
+                            string tag = "EcalPedestals_from_online" },
+                          { string record = "EcalADCToGeVConstantRcd"
+                            string tag = "EcalADCToGeVConstant_prelim_V0" },
+                          { string record = "EcalGainRatiosRcd"
+                            string tag = "EcalGainRatios_lab_prelim_V0" },
+                          { string record = "EcalIntercalibConstantsRcd"
+                            string tag = "EcalIntercalibConstants_cosmic_1xtal_V0" },
+                          { string record = "EcalWeightXtalGroupsRcd"
+	                    #If reading SM22 runs use the following
+	                    #string tag = "EcalWeightXtalGroups_standard_V1"
+                            string tag = "EcalWeightXtalGroups_standard_V0" },
+                          { string record = "EcalTBWeightsRcd"
+	                    #If reading SM22 runs use the following
+	                    #string tag = "EcalTBWeights_standard_V1" }
+                            string tag = "EcalTBWeights_standard_V0" }
+                          }
+		    	  bool loadAll = true
+                          untracked bool siteLocalConfig = false
+                          string connect = "frontier://cmsfrontier.cern.ch:8000/Frontier/CMS_ECAL_H4_COND"
+                          untracked string catalog = "xmlcatalog_file:/afs/cern.ch/cms/ECAL/testbeam/pedestal/2006/config_files/frontierCatalog.xml"
+                          untracked uint32 authenticationMethod = 0
+                          string timetype = "runnumber"
+                          untracked uint32 messagelevel = 0
+			}
+
+	module getCond = EventSetupRecordDataGetter { 
+                       VPSet toGet = {
+	                 { string record = "EcalPedestalsRcd"
+	                   vstring data = {"EcalPedestals"}
+                         },
+	                 { string record = "EcalADCToGeVConstantRcd"
+	                   vstring data = {"EcalADCToGeVConstant"}
+                         },
+                         { string record = "EcalGainRatiosRcd"
+	                   vstring data = {"EcalGainRatios"}
+                         },
+			 { string record = "EcalIntercalibConstantsRcd"
+	                   vstring data = {"EcalIntercalibConstants"}
+                         },
+                         { string record = "EcalWeightXtalGroupsRcd"
+	                   vstring data = {"EcalWeightXtalGroups"}
+                         },
+                         { string record = "EcalTBWeightsRcd"
+	                   vstring data = {"EcalTBWeights"}
+                         }
+	                 }
+	                 untracked bool verbose = true 
+	               }
