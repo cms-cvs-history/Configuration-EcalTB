@@ -1,5 +1,5 @@
 
-   include "SimGeneral/MixingModule/data/mix_none.cfi"
+   include "SimGeneral/MixingModule/data/mixNoPU.cfi"
 
    include "Geometry/CaloEventSetup/data/CaloGeometry.cfi"
 
