@@ -12,7 +12,7 @@
    #
    # PDT source
    #
-   include "SimGeneral/HepPDTESSource/data/pdt.cfi"   
+   include "SimGeneral/HepPDTESSource/data/pythiapdt.cfi"   
 
    # Geant4-based CMS Det.Simulation
    #
