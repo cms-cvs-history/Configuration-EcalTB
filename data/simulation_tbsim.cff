@@ -1,13 +1,7 @@
 
-   #Geometry
-   #   
-   include "Geometry/EcalTestBeam/data/cmsEcalIdealTBGeometryXML.cfi"
-
-   es_module = TrackerGeometricDetESModule {}
-
    # Magnetic Field
    #
-   #include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
+   include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
 
    #
    # PDT source
@@ -16,7 +10,31 @@
 
    # Geant4-based CMS Det.Simulation
    #
-   include "SimG4CMS/EcalTestBeam/data/EcalTestBeamSimG4Object.cff"
+   # ECAL test beam specific OscarProducer configuration
+
+   include "SimG4Core/Application/data/g4SimHits.cfi"
+
+   replace g4SimHits.UseMagneticField = false
+   replace g4SimHits.Physics.DefaultCutValue  = 1.
+   replace g4SimHits.Generator        =
+     {
+       string HepMCProductLabel = "VtxSmeared"
+
+       bool ApplyPtCuts = false
+       bool ApplyEtaCuts = true
+       bool ApplyPhiCuts = false
+       double MinPhiCut = -3.14159265358979323846 # in radians
+       double MaxPhiCut = 3.14159265358979323846 # according to CMS conventions
+       double MinEtaCut = 0.
+       double MaxEtaCut = 1.5
+       double MinPtCut = 0.001
+       double MaxPtCut = 99999.
+       untracked int32 Verbosity = 0
+     }
+   replace g4SimHits.CaloSD.CorrectTOFBeam = true
+   replace g4SimHits.CaloSD.BeamPosition = -26733.5
+   replace g4SimHits.CaloTrkProcessing.TestBeam = true
+
 
    # Test Beam ECAL specific MC info
    #
@@ -26,11 +44,9 @@
          using common_beam_direction_parameters
    }
 
-   # Test Beam ECAL hodoscope crude raw data simulation
+   # Test Beam ECAL hodoscope raw data simulation
    # 
-   module SimEcalTBHodoscope = FakeTBHodoscopeRawInfoProducer {
-         untracked string EcalTBInfoLabel = 'SimEcalTBG4Object'
-   }
+   module SimEcalTBHodoscope = TBHodoActiveVolumeRawInfoProducer {}
 		
    # Test Beam ECAL Event header filling
    # 
