@@ -18,7 +18,7 @@
    replace g4SimHits.Physics.DefaultCutValue  = 1.
    replace g4SimHits.Generator        =
      {
-       string HepMCProductLabel = "VtxSmeared"
+       string HepMCProductLabel = "source"
 
        bool ApplyPtCuts = false
        bool ApplyEtaCuts = true
@@ -40,7 +40,7 @@
    #
    module SimEcalTBG4Object = EcalTBMCInfoProducer {
          FileInPath CrystalMapFile = "Geometry/EcalTestBeam/data/BarrelSM1CrystalCenterElectron120GeV.dat"
-         untracked string moduleLabelVtx = 'VtxSmeared' 
+         untracked string moduleLabelVtx = 'source' 
          using common_beam_direction_parameters
    }
 
