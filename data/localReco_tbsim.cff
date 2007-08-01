@@ -6,9 +6,21 @@
 
   # TDC Reconstruction
   include "RecoTBCalo/EcalTBTDCReconstructor/data/ecalTBSimTDCReconstructor.cfi"
+  replace ecalTBSimTDCReconstructor.rawInfoProducer = "ecalUnsuppressedDigis"
+  replace ecalTBSimTDCReconstructor.tdcRanges =
+  {
+    {
+        int32 startRun = -2147483647
+        int32 endRun = 2147483647
+        vdouble tdcMin = { 430 ,  400,  400,  400,  400 }
+        vdouble tdcMax = { 958 ,  927,  927,  927,  927 }
+    } 
+ }
 
   # ECAL reconstruction
   include "RecoTBCalo/EcalTBRecProducers/data/ecalTBSimWeightUncalibRecHit.cfi"
+  replace ecalTBSimWeightUncalibRecHit.digiProducer = "ecalUnsuppressedDigis"
+
   include "RecoLocalCalo/EcalRecProducers/data/ecalTBSimRecHit.cfi"
 
   sequence localReco_tbsim = { ecalTBSimHodoscopeReconstructor, ecalTBSimTDCReconstructor, ecalTBSimWeightUncalibRecHit, ecalTBSimRecHit }
