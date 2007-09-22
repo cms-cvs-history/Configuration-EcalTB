@@ -1,44 +1,44 @@
 include "CondCore/DBCommon/data/CondDBSetup.cfi"
 
-# es_source ecalConditions = PoolDBESSource
-# {
-#     using CondDBSetup
-#     VPSet toGet = {
-#             { string record = "EcalPedestalsRcd"
-# 	    string tag = "EcalPedestals_online" }
-# #             { string record = "EcalWeightXtalGroupsRcd"
-# # 	    string tag = "EcalWeightXtalGroups_prelimininary" },
-# #             { string record = "EcalTBWeightsRcd"
-# # 	    string tag = "EcalTBWeights_preliminary" }
-#     }
-
-#         string connect = "frontier://Frontier/CMS_ECAL_H4_COND_2007"
-#         untracked bool siteLocalConfig = true
-#         untracked string catalog = "relationalcatalog_frontier://cms_conditions_data/CMS_COND_FRONTIER"
-#         string timetype = "runnumber"
-
-# }
-
 es_source ecalConditions = PoolDBESSource
 {
     using CondDBSetup
     VPSet toGet = {
-	{ string record = "EcalWeightXtalGroupsRcd"
+            { string record = "EcalPedestalsRcd"
+	    string tag = "EcalPedestals_online" },
+             { string record = "EcalWeightXtalGroupsRcd"
  	    string tag = "EcalWeightXtalGroups_preliminary" },
-	{ string record = "EcalTBWeightsRcd"
+             { string record = "EcalTBWeightsRcd"
  	    string tag = "EcalTBWeights_preliminary" }
     }
 
-    string connect = "sqlite:/cmsrm/pc18/meridian/1_5_4_ECALTBH4/src/Configuration/EcalTB/data/Weights_H4_2007_preliminary.db"
-    untracked string catalog = "file:Weights_H4_2007_preliminary.xml"
-    string timetype = "runnumber"
+        string connect = "frontier://Frontier/CMS_ECAL_H4_COND_2007"
+        untracked bool siteLocalConfig = true
+        untracked string catalog = "relationalcatalog_frontier://cms_conditions_data/CMS_COND_FRONTIER"
+        string timetype = "runnumber"
+
 }
+
+#es_source ecalConditions = PoolDBESSource
+#{
+#    using CondDBSetup
+#    VPSet toGet = {
+#	{ string record = "EcalWeightXtalGroupsRcd"
+# 	    string tag = "EcalWeightXtalGroups_preliminary" },
+#	{ string record = "EcalTBWeightsRcd"
+# 	    string tag = "EcalTBWeights_preliminary" }
+#    }#
+#
+#    string connect = "sqlite:/cmsrm/pc18/meridian/1_5_4_ECALTBH4/src/Configuration/EcalTB/data/Weights_H4_2007_preliminary.db"
+#    untracked string catalog = "file:Weights_H4_2007_preliminary.xml"
+#    string timetype = "runnumber"
+#}
 
 
 
 es_source h42007Trivial= EcalTrivialConditionRetriever {
     untracked bool producedEcalWeights = false
-    untracked bool producedEcalPedestals = true
+    untracked bool producedEcalPedestals = false
     untracked bool producedEcalIntercalibConstants = true
     untracked bool producedEcalGainRatios = true
     untracked bool producedEcalADCToGeVConstant = true
