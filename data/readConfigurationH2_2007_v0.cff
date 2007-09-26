@@ -14,7 +14,6 @@ es_source ecalConditions = PoolDBESSource
 
         string connect = "frontier://Frontier/CMS_ECALHCAL_H2_COND_2007"
         untracked bool siteLocalConfig = true
-        untracked string catalog = "relationalcatalog_frontier://cms_conditions_data/CMS_COND_FRONTIER"
         string timetype = "runnumber"
 
 }
