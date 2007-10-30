@@ -3,19 +3,20 @@ include "CondCore/DBCommon/data/CondDBSetup.cfi"
 es_source ecalConditions = PoolDBESSource
 {
     using CondDBSetup
+    string connect = "frontier://Frontier/CMS_ECALHCAL_H2_COND_2007"
+    untracked bool siteLocalConfig = true
+    string timetype = "runnumber"
     VPSet toGet = {
-            { string record = "EcalPedestalsRcd"
+	{ string record = "EcalPedestalsRcd"
 	    string tag = "EcalPedestals_online" },
-            { string record = "EcalWeightXtalGroupsRcd"
+	{ string record = "EcalWeightXtalGroupsRcd"
 	    string tag = "EcalWeightXtalGroups_prelimininary" },
-            { string record = "EcalTBWeightsRcd"
+	{ string record = "EcalTBWeightsRcd"
 	    string tag = "EcalTBWeights_preliminary" }
     }
+    
 
-        string connect = "frontier://Frontier/CMS_ECALHCAL_H2_COND_2007"
-        untracked bool siteLocalConfig = true
-        string timetype = "runnumber"
-
+    
 }
 
 es_source h2007Trivial= EcalTrivialConditionRetriever {
