@@ -29,8 +29,9 @@
        double MaxEtaCut = 1.5
        double MinPtCut = 0.001
        double MaxPtCut = 99999.
-       untracked int32 Verbosity = 0
        double DecLenCut   =  10.0 # the minimum decay length in cm (!) for mother tracking
+       using HectorEtaCut
+       untracked int32 Verbosity = 0
      }
    replace g4SimHits.CaloSD.CorrectTOFBeam = true
    replace g4SimHits.CaloSD.BeamPosition = -26733.5
