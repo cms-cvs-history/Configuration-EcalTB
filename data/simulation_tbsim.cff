@@ -1,7 +1,6 @@
 
    # Magnetic Field
    #
-   include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
 
    #
    # PDT source
